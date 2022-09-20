@@ -1,0 +1,3 @@
+node_modules/
+# dist
+# && rsync -av --delete ./dist/ me:/var/www/blog/

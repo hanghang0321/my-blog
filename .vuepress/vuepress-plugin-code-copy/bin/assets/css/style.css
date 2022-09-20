@@ -1,0 +1,47 @@
+.code-copy {
+	color: #aaa;
+	fill: #aaa;
+	font-size: 14px;
+	display: inline-block;
+	cursor: pointer;
+}
+
+div[class*='language-'] pre .code-copy,
+div[class*='aside-code'] aside .code-copy {
+	position: absolute;
+	z-index: 1000;
+	top: 0.7em;
+	right: 1em;
+	font-size: 0.75rem;
+	color: rgba(255, 255, 255, 0.4);
+}
+
+div[class*='language-']::before {
+	right: 6em !important;
+}
+
+.content pre,
+.content pre[class*='language-'] {
+	overflow-y: hidden;
+}
+
+div[class*='language-'] pre,
+div[class*='language-'] pre[class*='language-'] {
+	position: static !important;
+}
+
+div[class~='language-text']:before {
+	content: 'text';
+}
+
+div[class~='language-yml']:before {
+	content: 'yml';
+}
+
+div[class*='language-'] pre {
+	user-select: text;
+}
+
+p code {
+	user-select: all;
+}
