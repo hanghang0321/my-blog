@@ -4,7 +4,7 @@ module.exports = {
 	title: 'Hh Blog',
 	description: '正在努力加载中...',
 	dest: 'dist',
-	base: '/my-blog/',
+	// base: './',
 	locales: {
 		'/': {
 			lang: 'zh-CN',
