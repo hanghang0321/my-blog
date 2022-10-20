@@ -100,9 +100,9 @@ module.exports = {
 		lastUpdated: 'Last Updated',
 		author: '杭杭',
 		authorAvatar: '/avatar.png',
-		record: '豫ICP备2021022566号-1',
+		record: '豫ICP备2022024459号-1',
 		recordLink: 'https://beian.miit.gov.cn',
-		startYear: '2021',
+		startYear: '2022',
 	},
 	markdown: {
 		lineNumbers: true,
