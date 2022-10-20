@@ -57,7 +57,7 @@ module.exports = {
 			// },
 			{
 				text: 'Github',
-				link: 'https://github.com/hanghang0321',
+				link: 'https://github.com/tyh321',
 				icon: 'reco-github',
 			},
 		],
