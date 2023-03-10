@@ -1,48 +1,27 @@
-name: Blog CI
+name: Node CI
 
-on:
-  push:
-    branches:
-      - master
+on: [push]
 
 jobs:
   build:
-    # runs-on 指定job任务运行所需要的虚拟机环境(必填字段)
     runs-on: ubuntu-latest
+
     steps:
-      # 获取源码
-      - name: 迁出代码
-        # 使用action库  actions/checkout获取源码
-        uses: actions/checkout@master
-
-      # 安装Node16
-      - name: 安装node.js
-        # 使用action库  actions/setup-node安装node
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - name: Install Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: 16
-
-      # 安装依赖
-      - name: 安装依赖
-        run: npm install --registry=https://registry.npmmirror.com
-
-      # 打包
-      - name: 打包
-        run: npm run build
-
-      # 上传到服务器
-      - name: 上传到服务器
+          node-version: "16.18.1"
+      - name: Install npm dependencies
+        run: npm install
+      - name: Run build task
+        run: npm run build --if-present
+      - name: Deploy to Server
         uses: easingthemes/ssh-deploy@main
         env:
-          # 私钥
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          # scp参数
-          ARGS: '-avzr --delete'
-          # 源目录 默认 dist
-          SOURCE: 'dist'
-          # 服务器ip：换成你的服务器IP
-          REMOTE_HOST: '81.68.88.188'
-          # 用户
-          REMOTE_USER: 'root'
-          # 目标地址
-          TARGET: '/var/www/blog'
+          ARGS: "-avzr --delete"
+          SOURCE: "dist/"
+          REMOTE_HOST: "81.68.88.188"
+          REMOTE_USER: "root"
+          TARGET: "/var/www/blog"
