@@ -35,14 +35,14 @@ jobs:
         uses: easingthemes/ssh-deploy@main
         env:
           # 私钥
-          SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           # scp参数
           ARGS: '-avzr --delete'
-          # 源目录 默认dist
-          SOURCE: ${{ secrets.SOURCE }}
+          # 源目录 默认 dist
+          SOURCE: 'dist'
           # 服务器ip：换成你的服务器IP
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_HOST: '81.68.88.188'
           # 用户
           REMOTE_USER: 'root'
           # 目标地址
-          TARGET: ${{ secrets.TARGET }}
+          TARGET: '/var/www/blog'
